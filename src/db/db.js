@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const ConnectDB=async ()=>{
+  console.warn("checkig db connect")
   try {
     await mongoose.connect(`${process.env.MONGODB_URL}`) 
     console.log("Database connected");
