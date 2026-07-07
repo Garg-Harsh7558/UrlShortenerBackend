@@ -4,8 +4,12 @@ import { Link } from "../model/linkSchema.js";
 const fetchdb = async (req, res) => {
   try {
     const { original, alias } = req.body;
+    console.log("making request to find alias")
     if (alias) {
+      console.log("fetching db")
       const existalias = await Link.findOne({ alias });
+      console.log("finding db");
+      
       if (existalias) {
         return res.status(400).json({ message: "Alias already exists" });
       }
